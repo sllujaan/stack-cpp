@@ -19,3 +19,12 @@ public:
 		this->msg = "SizeException:: " + msg;
 	}
 };
+
+
+class testException : public Exception {
+public:
+	testException() {}
+	testException(string msg) {
+		this->msg = "testException:: testFailed:: " + msg;
+	}
+};

@@ -12,34 +12,7 @@ class STACK : public SizeException {
 
 public:
 	int size;
-private:
-	int topIndex;
-	T arr[totalSize];
 
-	void pushElementToStack(T a) {
-		this->canPushNewElement();
-		if (this->isEmpty()) this->initStack();
-		this->arr[++this->topIndex] = a;
-		this->size++;
-	}
-
-	void pushArrToStack(const T arr[], int len) {
-
-		if (this->isEmpty()) this->initStack();
-		this->validateArray(len);
-
-
-		for (int i = 0; i < len; i++) {
-			cout << arr[i] << endl;
-			this->arr[++this->topIndex] = arr[i];
-		}
-		this->size = len;
-
-	}
-
-
-public:
-	//int size;
 	STACK();
 	template<size_t n>
 	STACK(T(&arr)[n]);
@@ -56,7 +29,39 @@ public:
 	void validateArray(int array_size);
 	void canPushNewElement();
 	void removeAll();
+	int getTop();
+
+
+private:
+	int topIndex;
+	T arr[totalSize];
+	void pushElementToStack(T a);
+	void pushArrToStack(const T arr[], int len);
+	
 };
+
+template<class T, int totalSize>
+inline void STACK<T, totalSize>::pushElementToStack(T a)
+{
+	this->canPushNewElement();
+	if (this->isEmpty()) this->initStack();
+	this->arr[++this->topIndex] = a;
+	this->size++;
+}
+
+template<class T, int totalSize>
+inline void STACK<T, totalSize>::pushArrToStack(const T arr[], int len)
+{
+	if (this->isEmpty()) this->initStack();
+	this->validateArray(len);
+
+
+	for (int i = 0; i < len; i++) {
+		cout << arr[i] << endl;
+		this->arr[++this->topIndex] = arr[i];
+	}
+	this->size = len;
+}
 
 template<class T, int totalSize>
 STACK<T, totalSize>::STACK() {
@@ -124,6 +129,13 @@ template<class T, int totalSize>
 inline void STACK<T, totalSize>::removeAll()
 {
 	this->initStack();
+}
+
+template<class T, int totalSize>
+inline int STACK<T, totalSize>::getTop()
+{
+	if (!this->isEmpty()) return this->arr[this->topIndex];
+	else return '\0';
 }
 
 template<class T, int totalSize>
