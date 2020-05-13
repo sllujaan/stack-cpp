@@ -1,2 +1,7 @@
 ﻿  main.cpp
-  stack-cpp.vcxproj -> C:\Users\Subhan\source\repos\stack-cpp\Debug\stack-cpp.exe
+C:\Users\Subhan\source\repos\stack-cpp\stack-cpp\test.h(54,6): error C2374: 'expectedValue': redefinition; multiple initialization
+C:\Users\Subhan\source\repos\stack-cpp\stack-cpp\test.h(47): message : see declaration of 'expectedValue'
+C:\Users\Subhan\source\repos\stack-cpp\stack-cpp\test.h(55,16): error C2374: 'stack': redefinition; multiple initialization
+C:\Users\Subhan\source\repos\stack-cpp\stack-cpp\test.h(48): message : see declaration of 'stack'
+C:\Users\Subhan\source\repos\stack-cpp\stack-cpp\test.h(56,6): error C2374: 'testValue': redefinition; multiple initialization
+C:\Users\Subhan\source\repos\stack-cpp\stack-cpp\test.h(49): message : see declaration of 'testValue'

@@ -24,6 +24,9 @@ public:
 	void testRemoveAll();
 	template<typename T>
 	void ERROR(string testValueName, T testValue, string expectdValueName, T expectedValue);
+	
+	template<typename T, typename U>
+	void test(T testValue, U excpectedValue);
 };
 
 
@@ -40,11 +43,19 @@ inline void testSTACK::starTest()
 
 inline void testSTACK::testPUSH()
 {
+	//testing integer value--------
 	int expectedValue = 1;
 	STACK<int, 5> stack = expectedValue;
 	int testValue = stack.getTop();
 
-	if (testValue != 2) throw testException(" not "+testValue);
+	if (testValue != expectedValue) throw testException("test failed.");
+
+	//testing char* value--------
+	int expectedValue = 1;
+	STACK<int, 5> stack = expectedValue;
+	int testValue = stack.getTop();
+
+	if (testValue != expectedValue) throw testException("test failed.");
 }
 
 inline void testSTACK::testPOP()
@@ -63,3 +74,10 @@ inline void testSTACK::ERROR(string testValueName, T testValue, string expectdVa
 	string msg = testValueName + testValue + expectdValueName + expectedValue;
 	throw testException(msg);
 }
+
+template<typename T, typename U>
+inline void testSTACK::test(T testValue, U excpectedValue)
+{
+
+}
+
